@@ -10,15 +10,13 @@ read -p "password: " PASSWORD
 echo SETUP COMPLETE
 
 listen() {
-	while true
-	do
+	while true; do
 		nc -l $PORT | openssl aes-256-cbc -md sha512 -d -a -pbkdf2 -pass pass:$PASSWORD
 	done
 }
 
 write() {
-	while true
-	do
+	while true; do
 		read MESSAGE
 		echo $NICK: $MESSAGE | openssl aes-256-cbc -md sha512 -a -pbkdf2 -salt -pass pass:$PASSWORD | nc -N localhost $DESTINATION
 	done
