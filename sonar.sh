@@ -9,10 +9,6 @@ read -p "insert destination's port: " DESTINATION
 read -p "password: " PASSWORD
 echo SETUP COMPLETE
 
-clean() {
-	echo sigint felt in my little hearty
-}
-
 listen() {
 	while true
 	do
